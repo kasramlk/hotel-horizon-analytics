@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useMonths } from '@/hooks/useHotelData';
 
 interface MonthSelectorProps {
   hotelId?: string;
@@ -10,9 +9,13 @@ interface MonthSelectorProps {
 
 export function MonthSelector({ hotelId, value, onValueChange }: MonthSelectorProps) {
   const { t } = useTranslation();
-  const { data: months, isLoading } = useMonths(hotelId);
 
-  if (isLoading) return <div>Loading months...</div>;
+  // Generate static months for current year
+  const currentYear = new Date().getFullYear();
+  const months = Array.from({ length: 12 }, (_, i) => {
+    const month = (i + 1).toString().padStart(2, '0');
+    return `${currentYear}-${month}`;
+  });
 
   const formatMonth = (monthStr: string) => {
     const date = new Date(monthStr + '-01');
