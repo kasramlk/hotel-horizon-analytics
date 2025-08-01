@@ -7,7 +7,7 @@ import { Clock } from 'lucide-react';
 import { HotelSelector } from '@/components/HotelSelector';
 import { MonthSelector } from '@/components/MonthSelector';
 import { CurrencyToggle } from '@/components/CurrencyToggle';
-import { StatsView } from '@/components/StatsView';
+import { AnalyticsTabs } from '@/components/AnalyticsTabs';
 
 export function Dashboard() {
   const { t, i18n } = useTranslation();
@@ -56,7 +56,7 @@ export function Dashboard() {
 
         {/* Content */}
         {selectedHotel && selectedMonth ? (
-          <StatsView hotelId={selectedHotel} month={selectedMonth} />
+          <AnalyticsTabs hotelId={selectedHotel} month={selectedMonth} />
         ) : (
           <div className="flex items-center justify-center min-h-[60vh]">
             <Card className="w-full max-w-md text-center">
