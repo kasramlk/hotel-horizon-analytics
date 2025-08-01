@@ -48,7 +48,7 @@ export function AnalyticsTabs({ hotelId, month }: AnalyticsTabsProps) {
   const revenueChartData = {
     labels: monthlyRevenue?.map(item => item.label) || [],
     datasets: [{
-      label: t('dashboard.totalRevenue'),
+      label: t('kpi.totalRevenue'),
       data: monthlyRevenue?.map(item => item.value) || [],
       borderColor: brandColors[0],
       backgroundColor: `${brandColors[0]}20`,
@@ -60,7 +60,7 @@ export function AnalyticsTabs({ hotelId, month }: AnalyticsTabsProps) {
   const bookingsChartData = {
     labels: monthlyBookings?.map(item => item.label) || [],
     datasets: [{
-      label: t('dashboard.totalBookings'),
+      label: t('kpi.totalBookings'),
       data: monthlyBookings?.map(item => item.value) || [],
       backgroundColor: successColor,
       borderColor: successColor,
@@ -71,7 +71,7 @@ export function AnalyticsTabs({ hotelId, month }: AnalyticsTabsProps) {
   const adrChartData = {
     labels: adrTrend?.map(item => item.label) || [],
     datasets: [{
-      label: t('dashboard.averageRate'),
+      label: t('kpi.adr'),
       data: adrTrend?.map(item => item.value) || [],
       borderColor: dangerColor,
       backgroundColor: `${dangerColor}20`,
@@ -93,10 +93,10 @@ export function AnalyticsTabs({ hotelId, month }: AnalyticsTabsProps) {
     <Tabs defaultValue="occurred" className="space-y-6">
       <TabsList className="grid w-full max-w-md grid-cols-2">
         <TabsTrigger value="occurred">
-          {t('dashboard.title') === 'Dashboard' ? 'Occurred Stays' : 'Gerçekleşen Konaklamalar'}
+          {t('tabs.occurredStays')}
         </TabsTrigger>
         <TabsTrigger value="future">
-          {t('dashboard.title') === 'Dashboard' ? 'Future Sales' : 'Satış Performansı'}
+          {t('tabs.futureSales')}
         </TabsTrigger>
       </TabsList>
 
@@ -109,13 +109,13 @@ export function AnalyticsTabs({ hotelId, month }: AnalyticsTabsProps) {
           <ChartComponent
             type="doughnut"
             data={channelChartData}
-            title={t('dashboard.title') === 'Dashboard' ? 'Revenue Share by Channel' : 'Kanal Bazlı Gelir Dağılımı'}
+            title={t('charts.revenueShareByChannel')}
             loading={chartsLoading}
           />
           <ChartComponent
             type="line"
             data={revenueChartData}
-            title={t('dashboard.title') === 'Dashboard' ? 'Monthly Revenue Trend' : 'Aylık Gelir Trendi'}
+            title={t('charts.monthlyRevenueTrend')}
             loading={chartsLoading}
           />
         </div>
@@ -130,13 +130,13 @@ export function AnalyticsTabs({ hotelId, month }: AnalyticsTabsProps) {
           <ChartComponent
             type="bar"
             data={bookingsChartData}
-            title={t('dashboard.title') === 'Dashboard' ? 'Monthly Booking Distribution' : 'Aylık Rezervasyon Dağılımı'}
+            title={t('charts.monthlyBookingDistribution')}
             loading={chartsLoading}
           />
           <ChartComponent
             type="line"
             data={adrChartData}
-            title={t('dashboard.title') === 'Dashboard' ? 'ADR Trend Analysis' : 'ADR Trend Analizi'}
+            title={t('charts.adrTrendAnalysis')}
             loading={chartsLoading}
           />
         </div>

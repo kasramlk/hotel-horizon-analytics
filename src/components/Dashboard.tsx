@@ -70,10 +70,7 @@ export function Dashboard() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  {selectedHotel 
-                    ? 'Please select a month to view analytics'
-                    : 'Please select a hotel to view analytics'
-                  }
+                  {t('dashboard.selectData')}
                 </p>
               </CardContent>
             </Card>

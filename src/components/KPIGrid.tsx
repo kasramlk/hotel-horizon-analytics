@@ -35,18 +35,7 @@ export function KPICard({ id, value, iconKey, loading }: KPICardProps) {
   const { currency } = useCurrency();
   
   const getLabel = (id: string) => {
-    const labels: Record<string, { tr: string; en: string }> = {
-      totalBookings: { tr: 'Toplam Rezervasyon', en: 'Total Bookings' },
-      totalRevenue: { tr: 'Toplam Gelir', en: 'Total Revenue' },
-      adr: { tr: 'Ortalama ADR', en: 'Average ADR' },
-      strongestChannel: { tr: 'En Güçlü Kanal', en: 'Top Channel' },
-      futureBookings: { tr: 'Toplam Gelecek Rezervasyon', en: 'Future Bookings' },
-      futureRevenue: { tr: 'Toplam Gelecek Satış', en: 'Future Revenue' },
-      futureADR: { tr: 'Ortalama ADR', en: 'Average ADR' },
-      bookingWindow: { tr: 'Rezervasyon Dönemi', en: 'Booking Window' }
-    };
-    
-    return labels[id]?.[t('currency.eur') === '€' ? 'tr' : 'en'] || id;
+    return t(`kpi.${id}`);
   };
 
   const formatValue = (val: string | number) => {

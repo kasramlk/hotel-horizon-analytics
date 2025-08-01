@@ -11,7 +11,7 @@ export function HotelSelector({ value, onValueChange }: HotelSelectorProps) {
   const { t } = useTranslation();
   const { data: hotels, isLoading } = useHotels();
 
-  if (isLoading) return <div>Loading hotels...</div>;
+  if (isLoading) return <div>{t('dashboard.loadingHotels')}</div>;
 
   return (
     <Select value={value} onValueChange={onValueChange}>
