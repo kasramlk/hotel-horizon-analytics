@@ -7,6 +7,8 @@ import { useAuth } from "@/hooks/useAuth";
 import { Login } from "@/components/Login";
 import { Dashboard } from "@/components/Dashboard";
 import { CurrencyProvider } from "@/contexts/CurrencyContext";
+import { Rooms } from "@/pages/Rooms";
+import { Reservations } from "@/pages/Reservations";
 import "@/i18n/config";
 
 const queryClient = new QueryClient();
@@ -45,6 +47,16 @@ const App = () => (
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/rooms" element={
+              <ProtectedRoute>
+                <Rooms />
+              </ProtectedRoute>
+            } />
+            <Route path="/reservations" element={
+              <ProtectedRoute>
+                <Reservations />
               </ProtectedRoute>
             } />
             <Route path="*" element={<Navigate to="/" replace />} />
