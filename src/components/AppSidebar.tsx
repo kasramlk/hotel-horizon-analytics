@@ -28,7 +28,7 @@ import {
 const navigationItems = [
   {
     title: "Dashboard",
-    url: "/dashboard",
+    url: "/",
     icon: BarChart3,
     group: "Overview"
   },
